@@ -1,0 +1,10 @@
+{
+  "path": "update-guest-rsvp/910272ef0d3d2747fbcf8bbf223acf5cb45a4b35",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"inviteCode\": \"910272ef0d3d2747fbcf8bbf223acf5cb45a4b35\", \"attending\": 3}",
+  "pathParameters": {
+    "inviteCode": "910272ef0d3d2747fbcf8bbf223acf5cb45a4b35"
+  }
+}
