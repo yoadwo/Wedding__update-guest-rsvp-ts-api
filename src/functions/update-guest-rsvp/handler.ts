@@ -16,8 +16,8 @@ const updateGuestRsvp: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async
 
   try {
     const DbOkResponse = await db.query(
-      "UPDATE guests SET attendingNumber = ? where phoneNumberHash = ?",
-      [event.body.attending, event.body.inviteCode]);    
+      "UPDATE guests SET attendingNumber = ?, status = ? where phoneNumberHash = ?",
+      [event.body.attending, event.body.status, event.body.inviteCode]);    
     if (DbOkResponse.affectedRows == 0){
       return formatBadRequestResponse({data: {message: "No such guest", code: -1}});    
     } else {
