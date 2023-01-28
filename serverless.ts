@@ -7,7 +7,7 @@ const serverlessConfiguration: AWS = {
   app: 'wedding-invitations-aws',
   service: 'update-guest-rsvp-ts-api',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild'],
+  plugins: ['serverless-esbuild', 'serverless-offline'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
