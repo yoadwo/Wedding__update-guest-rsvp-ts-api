@@ -1,6 +1,8 @@
 import schema from './schema';
 import { handlerPath } from '@libs/handler-resolver';
 
+// 1. this must be used in addition with middy plugin
+// 2. when running locally, use deploy with --param flag to overwrite
 export default {
   handler: `${handlerPath(__dirname)}/handler.main`,
   events: [
@@ -13,7 +15,9 @@ export default {
             'application/json': schema,
           },
         },
-        cors: true
+        cors: {
+          origin: '${param:CORS_ORIGINS}'
+        },
       },
     },
   ],
