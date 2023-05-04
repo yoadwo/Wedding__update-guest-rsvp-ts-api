@@ -18,6 +18,7 @@ export default {
         cors: {
           origin: '${param:CORS_ORIGINS}'
         },
+        private: true
       },
     },
   ],
