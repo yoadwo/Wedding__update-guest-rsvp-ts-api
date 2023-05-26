@@ -15,7 +15,7 @@ const updateGuestRsvp: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async
 
   try {
     const DbOkResponse = await db.query(
-      "UPDATE guests_extended_2 SET attendingCount = ?, status = ?, lastUpdated = ? where phoneNumberHash = ?",
+      `UPDATE ${process.env.GUESTS_DB_TABLE} SET attendingCount = ?, status = ?, lastUpdated = ? where phoneNumberHash = ?`,
       [event.body.attending, event.body.status, currentTimeToMysqlFormat(), event.body.inviteCode]);    
     if (DbOkResponse.affectedRows == 0){
       console.warn(`weirdly, no such guests with code ${event.body.inviteCode} exists`)
