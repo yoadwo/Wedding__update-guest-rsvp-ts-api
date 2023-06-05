@@ -19,14 +19,14 @@ const updateGuestRsvp: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async
       [event.body.attending, event.body.status, currentTimeToMysqlFormat(), event.body.inviteCode]);    
     if (DbOkResponse.affectedRows == 0){
       console.warn(`weirdly, no such guests with code ${event.body.inviteCode} exists`)
-      return formatBadRequestResponse({data: {message: "No such guest", code: -1}});    
+      return formatBadRequestResponse({data: {message: "No such guest"}, code: -1});
     } else {
       console.log(`guest ${event.body.inviteCode} updated with status ${event.body.status}`)
-      return formatOkResponse({data: {message: "Guest updated", code: 0}});
+      return formatOkResponse({data: {message: "Guest updated"}, code: 0});
     }    
   } catch (err) {
     console.error(err);
-    return formatInternalErrorResponse({ message: err, event });
+    return formatInternalErrorResponse({error: {message: err}, code: -2});
   } finally {
     await db.close();
   }
