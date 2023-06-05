@@ -13,7 +13,7 @@
     "@middy/core": "^3.4.0",
     "@middy/http-cors": "^4.4.0",
     "@middy/http-json-body-parser": "^3.4.0",
-    "@serverless/typescript": "^3.27.0",
+    "@serverless/typescript": "^3.29.0",
     "@types/mysql": "^2.15.21",
     "mysql": "^2.18.1"
   },
